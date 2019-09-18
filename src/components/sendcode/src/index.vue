@@ -13,6 +13,7 @@
     </div>
     <sq-button
       class="sq-sendcode-btn"
+      :class="{ 'sq-sendcode-disabled-btn': this.disabled }"
       type="ghost"
       :disabled="disabled"
       @click="$_click"
@@ -193,6 +194,10 @@ $prefixCls: sq-sendcode;
       position: absolute;
       right: 0;
       padding: 0 18px;
+      &.sq-sendcode-disabled-btn {
+        border-color: transparent;
+        color: #fff;
+      }
     }
   }
 }
