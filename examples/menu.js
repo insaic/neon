@@ -56,7 +56,8 @@ const menu = {
     { to: 'chooseCar', name: 'ChooseCar - 选择车型' },
     { to: 'chooseCity', name: 'ChooseCity - 选择城市组件' },
     { to: 'sendcode', name: 'Sendcode - 发送验证码' },
-    { to: 'submitBar', name: 'SubmitBar - 提交订单栏' }
+    { to: 'submitBar', name: 'SubmitBar - 提交订单栏' },
+    { to: 'sign', name: 'Sign - 签名' }
   ]
 }
 

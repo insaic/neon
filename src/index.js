@@ -47,6 +47,7 @@ import ChooseCar from './components/choose-car'
 import ChooseCity from './components/choose-city'
 import Sendcode from './components/sendcode'
 import SubmitBar from './components/submit-bar'
+import Sign from './components/sign'
 
 const components = [
   // base
@@ -92,7 +93,8 @@ const components = [
   ChooseCar,
   ChooseCity,
   Sendcode,
-  SubmitBar
+  SubmitBar,
+  Sign
 ]
 
 const install = Vue => {
@@ -157,7 +159,8 @@ export {
   ChooseCar,
   ChooseCity,
   Sendcode,
-  SubmitBar
+  SubmitBar,
+  Sign
 }
 
 export default {
