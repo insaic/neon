@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="56px" height="59px" viewBox="0 0 56 59" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.3 (57544) - http://www.bohemiancoding.com/sketch -->
+    <title>Rectangle 3 Copy 4</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Rectangle-3-Copy-4" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M26.5,58.5625 L26.5,63 L27,62.5 L26,62.5 L26.5,63 L26.5,58.5625 Z M26.5,58.5625 L26.5,54 L26,54.5 L27,54.5 L26.5,54 L26.5,58.5625 Z" stroke="#344AE0" transform="translate(26.500000, 58.500000) rotate(-270.000000) translate(-26.500000, -58.500000) "></path>
+        <polygon id="Star" fill="#FADB14" opacity="0.842857143" points="30.5 45.2184301 14.7401333 53.5038823 17.75 35.9550128 5 23.5268345 22.6200666 20.9664889 30.5 5 38.3799334 20.9664889 56 23.5268345 43.25 35.9550128 46.2598667 53.5038823"></polygon>
+        <polygon id="Star-Copy" stroke="#13C2C2" points="25.5 43.2184301 9.74013329 51.5038823 12.75 33.9550128 -4.4408921e-16 21.5268345 17.6200666 18.9664889 25.5 3 33.3799334 18.9664889 51 21.5268345 38.25 33.9550128 41.2598667 51.5038823"></polygon>
+        <circle id="Oval-Copy-6" fill="#FF0000" cx="22" cy="26" r="2"></circle>
+        <circle id="Oval-Copy-7" fill="#13C2C2" cx="18.5" cy="3.5" r="3.5"></circle>
+        <circle id="Oval-Copy-8" fill="#3295FF" cx="3.5" cy="10.5" r="3.5"></circle>
+    </g>
+</svg>

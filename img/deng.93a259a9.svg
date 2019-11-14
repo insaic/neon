@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="37px" height="51px" viewBox="0 0 37 51" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.3 (57544) - http://www.bohemiancoding.com/sketch -->
+    <title>Rectangle 3</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Rectangle-3" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect fill="#13C2C2" x="6" y="34" width="26" height="9"></rect>
+        <g id="Oval-Copy">
+            <circle fill="#FADB14" cx="18.5" cy="18.5" r="18.5"></circle>
+            <circle id="Oval-Copy-2" fill="#FFFFFF" cx="10" cy="11" r="2"></circle>
+            <rect id="Rectangle-3-Copy" stroke="#575757" x="11.5" y="41.5" width="14" height="4"></rect>
+            <path d="M18.5,29.5625 L18.5,34 L19,33.5 L18,33.5 L18.5,34 L18.5,29.5625 Z M18.5,29.5625 L18.5,25 L18,25.5 L19,25.5 L18.5,25 L18.5,29.5625 Z" id="Rectangle-3-Copy-2" stroke="#575757"></path>
+            <path d="M18.5,50.5625 L18.5,55 L19,54.5 L18,54.5 L18.5,55 L18.5,50.5625 Z M18.5,50.5625 L18.5,46 L18,46.5 L19,46.5 L18.5,46 L18.5,50.5625 Z" id="Rectangle-3-Copy-3" stroke="#344AE0" transform="translate(18.500000, 50.500000) rotate(-270.000000) translate(-18.500000, -50.500000) "></path>
+            <polygon id="Triangle" fill="#FF0000" points="18.5 27 12 20 25 20"></polygon>
+        </g>
+    </g>
+</svg>
