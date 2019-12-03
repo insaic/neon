@@ -1,4 +1,7 @@
 ### 更新日志
+##### v0.4.24
+`2019-12-03`
+- 修复 date-picker 组件在 type 为 datetime 情况下 minHour 和 maxHour 不生效问题
 ##### v0.4.23
 `2019-11-14`
 - 添加sign签名组件
