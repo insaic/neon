@@ -104,7 +104,6 @@ export default {
         { type: 'year', range: [_minY, _maxY] },
         { type: 'month', range: [_minM + 1, _maxM + 1] },
         { type: 'day', range: [_minD, _maxD] },
-        { type: 'hour', range: [_minH, _maxH] },
         {
           type: 'hour',
           range: isDatetimeType
