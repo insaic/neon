@@ -1,6 +1,6 @@
 {
   "name": "@insaic/neon",
-  "version": "0.4.24",
+  "version": "0.4.25",
   "publishConfig": {
     "access": "public"
   },
