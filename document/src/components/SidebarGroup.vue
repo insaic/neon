@@ -4,11 +4,13 @@
       <ul class="sidebar-group-items" ref="items">
         <li v-for="(child, i) in item[1]" :key="i">
           <router-link
-            :to="item[0] === 'developmentGuide' ? `/${child.to}` : `/docs/components/${item[0]}/${child.to}`"
+            :to="item[0] === 'developmentGuide'
+              ? `/${child.to}`
+              : (item[0] === 'directives' ? `/docs/directives/${child.to}` : `/docs/components/${item[0]}/${child.to}`)"
             @click.native="autoHideSidebar"
             class="sidebar-link"
           >
-            {{ child.name.replace(/-/g, ' ') }}
+            {{ item[0] !== 'directives' ? child.name.replace(/-/g, ' ') : child.name }}
           </router-link>
         </li>
       </ul>

@@ -6,6 +6,10 @@ const menu = {
     { to: 'theme', name: '主题定制' },
     { to: 'changelog', name: '更新日志' }
   ],
+  // 自定义指令
+  directives: [
+    { to: 'sq-input', name: 'sq-input' }
+  ],
   // 基础
   base: [
     { to: 'accordion', name: 'Accordion - 折叠面板' },
@@ -51,9 +55,10 @@ const menu = {
     { to: 'childinsuranceCell', name: 'ChildinsuranceCell - 子险列表' },
     { to: 'chooseCar', name: 'ChooseCar - 选择车型' },
     { to: 'chooseCity', name: 'ChooseCity - 选择城市组件' },
-    { to: 'citySelector', name: 'CitySelector - 城市选择' },
     { to: 'sendcode', name: 'Sendcode - 发送验证码' },
-    { to: 'submitBar', name: 'SubmitBar - 提交订单栏' }
+    { to: 'submitBar', name: 'SubmitBar - 提交订单栏' },
+    { to: 'sign', name: 'Sign - 签名' }
   ]
 }
-module.exports = menu
+
+export default menu

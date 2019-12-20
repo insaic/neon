@@ -99,11 +99,17 @@ export default {
       }
       const { _maxY, _maxD, _maxM, _maxH, _maxF } = this.getLimit('max', this.innerValue)
       const { _minY, _minD, _minM, _minH, _minF } = this.getLimit('min', this.innerValue)
+      const isDatetimeType = this.type === 'datetime'
       const result = [
         { type: 'year', range: [_minY, _maxY] },
         { type: 'month', range: [_minM + 1, _maxM + 1] },
         { type: 'day', range: [_minD, _maxD] },
-        { type: 'hour', range: [_minH, _maxH] },
+        {
+          type: 'hour',
+          range: isDatetimeType
+            ? [Math.max(_minH, this.minHour), Math.min(_maxH, this.maxHour)]
+            : [_minH, _maxH]
+        },
         { type: 'minute', range: [_minF, _maxF] }
       ]
       if (this.type === 'date') result.splice(3, 2)

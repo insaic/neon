@@ -34,3 +34,30 @@ this.$toast.show({ message: '自定义icon', iconClass: 'pentagram' })
 :::tip
 text、success、error、warn、loading均为show方法里的type参数的简写形式。亦可用show方法传入对象形式使用。
 :::
+
+#### 多例形式使用
+:::tip
+toast默认为单例。多例调用配置如下
+```js
+Vue.use(toast, {
+  isMultiple: true
+})
+```
+:::
+
+#### 不挂载在vue原型上，自己手动挂载并调用toast例子。
+:::tip
+toast默认为挂载在vue原型上。自己手动挂载并调用toast例子，如下
+```js
+// 配置
+Vue.use(toast, {
+  isInPrototype: false
+})
+// 手动挂载toast
+window.$toast = toast
+// 使用
+const _loading = window.$toast.loading('加载中...', -1)
+// 隐藏
+_loading.hide()
+```
+:::

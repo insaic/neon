@@ -53,3 +53,35 @@ this.$dialog.alert({
  名称 | 参数 | 描述
 :---- |:--- |:---------
  hide | --  | 隐藏对话框
+
+ #### 多例形式使用
+:::tip
+dialog默认为单例。多例调用配置如下
+```js
+Vue.use(dialog, {
+  isMultiple: true
+})
+```
+:::
+
+#### 不挂载在vue原型上，自己手动挂载并调用dialog例子。
+:::tip
+dialog默认为挂载在vue原型上。自己手动挂载并调用dialog例子，如下
+```js
+// 配置
+Vue.use(dialog, {
+  isInPrototype: false
+})
+// 手动挂载dialog
+window.$dialog = dialog
+// 使用
+const _dialog = window.$dialog.alert({
+  title: '',
+  message: '链接中断！',
+  onConfirm: () => {
+    // 手动隐藏
+    _dialog.hide()
+  }
+})
+```
+:::

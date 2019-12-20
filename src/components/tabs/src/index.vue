@@ -56,6 +56,10 @@ export default {
       validator (value) {
         return ['line', 'block'].indexOf(value) > -1
       }
+    },
+    autoActive: {
+      type: Boolean,
+      default: true
     }
   },
 
@@ -84,19 +88,23 @@ export default {
 
   methods: {
     handleClick (event, index) {
-      this.index = index
       const navName = this.tabList[index].name
       if (navName === this.currentActive) { return }
 
-      this.currentActive = navName
+      this.autoActive && this.setActivePane(index)
+
+      this.$emit('click', navName, index)
+    },
+
+    setActivePane (index) {
+      this.index = index
+      this.currentActive = this.tabList[index].name
 
       if (!this.hideLine && this.type === 'line') {
         const parentLeft = this.$refs.tabHeaderWrapper.getBoundingClientRect().left
         const targetLeft = this.$refs.tabItemTitleWrapperRef[index].getBoundingClientRect().left
         this.tleft = `translate(${targetLeft - parentLeft}px, 0) scaleX(${this.lineScale})`
       }
-
-      this.$emit('click', navName)
     },
 
     getPane () {

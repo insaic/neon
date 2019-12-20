@@ -6,7 +6,7 @@
         <i class="sq-icon sq-icon-error"></i>
       </div>
     </div>
-    <ul class="sq-uploader-files" @click="$_click"></ul>
+    <ul class="sq-uploader-files" ref="imgWrapRef" @click="$_click"></ul>
     <div class="sq-uploader-input-wrap">
       <input
         class="sq-uploader-input"
@@ -69,9 +69,9 @@ export default {
        */
       e.target.value = null
 
-      if ((this.onBeforeUploader && this.onBeforeUploader(e) === false) || this.disabled) {
-        e.preventDefault()
-      }
+      // if ((this.onBeforeUploader && this.onBeforeUploader(e) === false) || this.disabled) {
+      //   e.preventDefault()
+      // }
     },
     $_click (e) {
       if (e.target.nodeName.toLocaleLowerCase() === 'img') {
@@ -80,9 +80,13 @@ export default {
       }
     },
     $_change (e) {
-      let src
+      const { files } = e.target
+      if (this.disabled || !files.length) {
+        return
+      }
+
       const url = window.URL || window.webkitURL || window.mozURL
-      const files = e.target.files
+      let src
       for (let i = 0, len = files.length; i < len; i++) {
         let file = files[i]
 
@@ -105,6 +109,14 @@ export default {
         const elementDelWrap = document.createElement('span')
         elementDelWrap.classList.add('sq-uploader-file-delete-wrap')
 
+        const elementUl = this.$refs.imgWrapRef
+
+        elementDelWrap.onclick = (e) => {
+          console.log(e)
+          elementDelWrap.onclick = null
+          elementUl.removeChild(element)
+        }
+
         const elementDel = document.createElement('i')
         elementDel.classList.add('sq-icon')
         elementDel.classList.add('sq-icon-error')
@@ -113,7 +125,7 @@ export default {
         elementDelWrap.appendChild(elementDel)
         element.appendChild(elementDelWrap)
         element.appendChild(elementImg)
-        e.target.parentNode.previousElementSibling.appendChild(element)
+        elementUl.appendChild(element)
       }
       this.$emit('file-change', files)
     }
@@ -193,7 +205,7 @@ $prefixCls: sq-uploader;
     color: #fff;
     font-size: 16px;
     display: inline-block;
-    margin-top: -1px;
+    transform: scale(.8) translateY(-2px);
   }
   &-input-wrap {
     float: left;

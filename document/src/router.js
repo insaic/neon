@@ -1,9 +1,10 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import menu from '../../examples/menu.js'
 
 Vue.use(Router)
 
-const menu = require('../../examples/menu.js')
+// const menu = require('../../examples/menu.js')
 let routes = []
 
 function format (str) {
@@ -28,6 +29,15 @@ Object.entries(menu).forEach(typeArr => {
           title: item.name
         },
         component: () => import(`./views/${item.to}.md`)
+      })
+    } else if (typeArr[0] === 'directives') {
+      routes.push({
+        path: `/docs/directives/${item.to}`,
+        name: item.to,
+        meta: {
+          title: item.name
+        },
+        component: () => import(`../../src/directives/${format(item.to)}/${item.to}.md`)
       })
     } else {
       routes.push({

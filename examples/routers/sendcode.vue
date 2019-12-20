@@ -7,16 +7,21 @@
       :code.sync="code"
       session-storage-key="sessionStorageKey"
       @click="send1"
-    ></sq-sendcode>
+    />
 
-    <demo-title left>嵌入fieldgroup形式</demo-title>
+    <demo-title left>嵌入fieldgroup形式,自定义输入规则</demo-title>
     <sq-field-group>
       <sq-field label="手机号码" placeholder="请输入手机号码" v-model="name"></sq-field>
       <sq-sendcode
         v-model="sendcode2"
         @click="send2"
-      ></sq-sendcode>
+        :code.sync="code2"
+        :replace-handle="replaceHandle"
+        pattern="*"
+        :maxlength="64"
+      />
     </sq-field-group>
+    {{ code2 }}
   </div>
 </template>
 
@@ -29,7 +34,8 @@ export default {
       sendcode1: false,
       sendcode2: false,
       name: '',
-      code: ''
+      code: '',
+      code2: ''
     }
   },
 
@@ -39,6 +45,9 @@ export default {
     },
     send2 () {
       this.sendcode2 = true
+    },
+    replaceHandle (val) {
+      return val.replace(/[^a-zA-Z0-9]/g, '')
     }
   }
 }

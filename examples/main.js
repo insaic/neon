@@ -12,8 +12,10 @@ import Demo from './routers/demo'
 import DemoTitle from './routers/demoTitle'
 
 import Neon from '@/index.js'
+import { sqInput } from '@/directives'
 
 Vue.use(Neon)
+Vue.use(sqInput)
 Vue.component(Demo.name, Demo)
 Vue.component(DemoTitle.name, DemoTitle)
 

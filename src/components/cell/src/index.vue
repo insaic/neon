@@ -10,7 +10,6 @@
     </div>
     <div
       class="sq-cell-bd"
-      v-if="value !== void 0 && value !== null || $slots.default"
       @click="$_click"
     >
       <slot>
@@ -18,7 +17,9 @@
       </slot>
     </div>
     <slot name="right-icon">
-      <i v-if="isLink" class="sq-cell-ft"/>
+      <div class="sq-cell-ft" v-if="isLink">
+        <i class="sq-icon sq-icon-arrow-right sq-cell-arrow"></i>
+      </div>
     </slot>
   </div>
 </template>
@@ -84,25 +85,19 @@ $prefixCls: sq-cell;
     flex-flow: row-reverse;
   }
   &-ft {
-    padding-left: 10px;
-  }
-  // arrow
-  &-islink {
+    padding-left: 16px;
+    display: inline-block;
+    vertical-align: middle;
+    height: 100%;
     position: relative;
-    &::after {
-      content: "";
-      display: block;
-      position: absolute;
-      width: 10px;
-      right: 14px;
-      top: 50%;
-      margin-top: -5px;
-      height: 10px;
-      border-right: 2px solid #e6e6e6;
-      border-top: 2px solid #e6e6e6;
-      box-sizing: border-box;
-      transform: rotate(45deg);
-    }
+  }
+  &-arrow {
+    font-size: 16px;
+    color: #ccc;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
   }
 }
 </style>

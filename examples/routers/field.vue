@@ -1,7 +1,7 @@
 <template>
   <div class="demo-page-wrap demo-field-wrap">
     <demo-title left>列表样式</demo-title>
-    <sq-field placeholder="请输入用户名" v-model="name"></sq-field>
+    <sq-field placeholder="请输入手机号码" v-model="name" hasBlurTip v-sq-input:mobile.required></sq-field>
     <sq-field required label="用户名" placeholder="请输入用户名" v-model="name" icon="alert-full" @click-icon="clickIcon"></sq-field>
     <sq-field required label="带清空按钮" placeholder="请输入密码" clearable v-model="name2"></sq-field>
 

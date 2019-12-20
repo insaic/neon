@@ -28,9 +28,10 @@ Vue.use(Tabs).use(Tabpane)
    sticky     | `Boolean`           | 是否固定显示                      |  --      |  -- 
    type       | `String`            | 标签样式显示类型，线形或块状        | 'line'  |  'block'
    line-scale  | `String`，`Number` | 下划线缩放比例，仅type='line'下有效 | 1       |  -- 
-   hide-line   | `Boolean`          | 是否隐藏下划线，仅type='line'下有效 |  false  |  true 
+   hide-line   | `Boolean`          | 是否隐藏下划线，仅type='line'下有效 | `false` |  `true`
    title-height| `String`，`Number` | 标题高度                           |  48     |  -- 
    font-size   | `String`，`Number` | 标题字体大小                       |  16     |  -- 
+   auto-active | `Boolean`          | 是否自动切换到当前点击项的tab栏，<br>设置为`false`时，<br>可通过内部方法 `setActivePane` 实现手动切换tab栏  | `true`  |  `false` 
 
 * tabpane
    名称  | 类型       | 说明     | 默认值   | 可选值
@@ -39,9 +40,26 @@ Vue.use(Tabs).use(Tabpane)
    name  | `String`，`Number`  | 标签项名称 |   --   |   --
 
 ---
+#### Event
+* tabs
+  名称       | 参数         | 描述
+  :---------- |:----        |:-------------------------------- 
+  click      | name，index | 点击确tab栏执行的事件，<br>name为当前点击的tabpane所对应的名称，<br>index为tab栏对应的下标
+
+---
 #### slot
 * tabpane
+
   | 名称    |  描述        |
   |:----    | :---------- |
   | --      | 自定义内容   |
   | title   | 自定义该标签项的标题，会覆盖tabpane中的label值  |
+
+---
+
+#### 内部方法
+通过 ref 可以获取到 picker 实例并调用实例方法，或在on-change 事件中通过 第二个参数取得picker实例调用方法。
+
+方法名           | 参数            | 返回值 | 说明
+:------         |:----            |:-------|:---
+setActivePane   | index           | --     | 切换至所传入下标的tab栏，<br> `index` 为要选中的tab栏的下标

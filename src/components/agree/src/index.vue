@@ -1,7 +1,7 @@
 <template>
   <div class="sq-agree" @click.stop="$_Click">
     <div class="sq-agree-wrap">
-      <sq-checkicon :value="value" @check.stop="$_Click"></sq-checkicon>
+      <sq-checkicon :value="value" :type="borderType" @check.stop="$_Click"></sq-checkicon>
       <span class="sq-agree-text">
         <slot></slot>
       </span>
@@ -20,6 +20,13 @@ export default {
   },
 
   props: {
+    borderType: {
+      type: String,
+      default: 'round', // 默认圆形，可设置正方形
+      validator (value) {
+        return ['round', 'square', 'square-border'].indexOf(value) > -1
+      }
+    },
     value: {
       type: Boolean,
       required: true

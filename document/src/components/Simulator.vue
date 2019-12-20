@@ -15,7 +15,7 @@
 import NeonNarbar from './NeonNarbar.vue'
 import menu from '../../../examples/menu.js'
 
-const baseUrl = process.env.NODE_ENV === 'production' ? 'https://insaic.github.io/neon/examples/#' : `http://${window.location.hostname}:8999/#`
+const baseUrl = process.env.NODE_ENV === 'production' ? `https://${window.location.hostname}/neon/examples/#` : `http://${window.location.hostname}:8999/#`
 
 export default {
   components: { NeonNarbar },
@@ -44,7 +44,7 @@ export default {
         let inExampleMenu = false
         Object.entries(menu).forEach(group => {
           group[1].forEach(item => {
-            if (group[0] !== 'developmentGuide' && item.to === path) {
+            if (group[0] !== 'developmentGuide' && group[0] !== 'directives' && item.to === path) {
               this.title = item.name
               inExampleMenu = true
             }
@@ -83,6 +83,12 @@ export default {
   margin-top: -30px
   height: 704px
   background: url(~@/assets/images/iphoneX.png) no-repeat 0 0/cover
+
+@media screen and (max-height: 770px)
+  .neon-doc-simulator
+    margin-top: 0
+    top: initial
+    transform: translateY(0)
 
 .neon-doc-simulator
   &__nav

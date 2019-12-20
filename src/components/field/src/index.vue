@@ -6,6 +6,7 @@
     <div class="sq-field-value" :class="classes">
       <div class="sq-field-body">
         <input
+          ref="inputRef"
           v-if="!$slots.control"
           class="sq-field-control"
           :class="inputClasses"
@@ -16,8 +17,8 @@
           v-on="listeners"
         >
         <slot name="control"></slot>
-        <div class="sq-field-icon" v-if="clearable || icon || arrow || isLink" :style="iconWrapperStyles" @click="$_clickIcon">
-          <i class="sq-icon" :class="iconClasses" v-if="!$slots.icon" :style="iconStyles"></i>
+        <div class="sq-field-icon" v-if="clearable || icon || arrow || isLink || innerHasBlurTip" :style="iconWrapperStyles" @click="$_clickIcon">
+          <i class="sq-icon" :class="iconClasses" v-if="!$slots.icon || innerHasBlurTip" :style="iconStyles"></i>
           <slot name="icon"></slot>
         </div>
         <div class="sq-field-button" v-if="$slots.button">
@@ -76,6 +77,16 @@ export default {
     iconSize: {
       type: String,
       default: '16'
+    },
+    hasBlurTip: {
+      type: Boolean,
+      default: false
+    }
+  },
+
+  data () {
+    return {
+      innerHasBlurTip: false
     }
   },
 
@@ -87,7 +98,8 @@ export default {
       return [
         {
           'sq-icon-arrow-right': !this.clearable && (this.arrow || this.isLink),
-          'sq-icon-error-full': this.clearable && (this.value || this.value === 0)
+          'sq-icon-error-full': this.clearable && (this.value || this.value === 0),
+          'sq-icon-alert-full blur-tip': this.innerHasBlurTip
         },
         this.icon ? `sq-icon-${this.icon}` : ''
       ]
@@ -116,6 +128,30 @@ export default {
       return {
         ...this.$listeners,
         input: this.onInput
+      }
+    }
+  },
+
+  mounted () {
+    if (this.hasBlurTip) {
+      const oldFun = this.$refs.inputRef.onblur
+      this.$refs.inputRef.onblur = () => {
+        if (typeof oldFun === 'function') {
+          oldFun() ? (this.innerHasBlurTip = false) : (this.innerHasBlurTip = true)
+        } else {
+          !this.value ? (this.innerHasBlurTip = true) : (this.innerHasBlurTip = false)
+        }
+      }
+    }
+  },
+
+  beforeDestroy () {
+    if (this.$refs.inputRef) {
+      if (typeof this.$refs.inputRef.onblur === 'function') {
+        this.$refs.inputRef.onblur = null
+      }
+      if (typeof this.$refs.inputRef.oninput === 'function') {
+        this.$refs.inputRef.oninput = null
       }
     }
   },
@@ -241,6 +277,9 @@ $prefixCls: sq-field;
     margin-right: -10px;
     .sq-icon-arrow-right, .sq-icon-error-full {
       color: #ccc;
+    }
+    .blur-tip {
+      color: #ff6500
     }
   }
   &~&::after {

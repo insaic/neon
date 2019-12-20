@@ -11,8 +11,8 @@
       </sq-tabpane>
     </sq-tabs>
   
-    <demo-title>默认选中</demo-title>
-    <sq-tabs active="name3" hide-line>
+    <demo-title>默认选中&手动切换tab</demo-title>
+    <sq-tabs ref="tabRef" active="name3" :auto-active="false" hide-line @click="click">
       <sq-tabpane label="标签一" name="name1">标签一的内容</sq-tabpane>
       <sq-tabpane label="标签二" name="name2">标签二的内容</sq-tabpane>
       <sq-tabpane label="标签三" name="name3">标签三的内容</sq-tabpane>
@@ -52,7 +52,16 @@ export default {
     }
   },
 
-  methods: {}
+  methods: {
+    click (name, index) {
+      console.log(name, index)
+      this.$toast.loading('请求中...', -1)
+      setTimeout(() => {
+        this.$toast.hide()
+        this.$refs.tabRef.setActivePane(index)
+      }, 3000)
+    }
+  }
 }
 
 </script>
