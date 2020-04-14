@@ -1,5 +1,7 @@
 import './common/styles/base.scss'
 
+import fileConver from './components/file-conver'
+
 // base
 import Accordion from './components/accordion'
 import AccordionItem from './components/accordion-item'
@@ -113,6 +115,8 @@ if (typeof window !== 'undefined' && window.Vue) {
 }
 
 export {
+  fileConver,
+
   // base
   Accordion,
   AccordionItem,
