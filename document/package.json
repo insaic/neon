@@ -28,7 +28,7 @@
     "markdown-it-emoji": "^1.4.0",
     "markdown-it-table-of-contents": "^0.4.3",
     "node-sass": "^4.9.0",
-    "prismjs": "^1.15.0",
+    "prismjs": "^1.21.0",
     "sass-loader": "^7.0.1",
     "vue-template-compiler": "^2.5.17",
     "gulp": "^3.9.1"
