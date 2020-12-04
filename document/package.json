@@ -20,7 +20,7 @@
     "@vue/cli-service": "^3.0.0",
     "@vue/eslint-config-standard": "^3.0.1",
     "chalk": "^2.4.1",
-    "highlight.js": "^9.12.0",
+    "highlight.js": "^10.4.1",
     "loader-utils": "^1.1.0",
     "markdown-it": "^8.4.2",
     "markdown-it-anchor": "^5.0.2",
